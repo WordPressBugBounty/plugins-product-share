@@ -134,7 +134,7 @@ ul.psfw-social-icons li:not(:last-child){
     flex-direction: column;
     visibility: visible;
     opacity: 1;
-    z-index: 1000;
+    z-index: 1500;
 }
 
 .psfw-popup-container.open .psfw-popup-inner-container{
@@ -147,7 +147,7 @@ ul.psfw-social-icons li:not(:last-child){
     flex-direction: column;
     opacity: 0;
     position: relative;
-    z-index: 1001;
+    z-index: 1501;
     left: 50%;
     top: 50%;
     width: 600px;
@@ -163,7 +163,6 @@ ul.psfw-social-icons li:not(:last-child){
     font-weight: bold;
     margin-bottom: 0;
     padding: 15px 0;
-    border-bottom: 1px solid #e6e6e6;
     margin: 0;
     line-height: 1.5em;
 }
@@ -194,6 +193,40 @@ ul.psfw-social-icons li:not(:last-child){
 
 .psfw-popup-container ul.psfw-popup-ul-container li a i {
     padding-right: 5px;
+}
+
+.psfw-popup-container .psfw-popup-top {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.psfw-popup-container .psfw-popup-top h3 {
+    width: 100%;
+}
+
+.psfw-popup-container .psfw-popup-top.with-close h3 {
+    width: 90%;
+}
+
+.psfw-popup-container .psfw-popup-top a {
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    border-left: 1px solid #e6e6e6;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #ac0000;
+    color: #fff;
+}
+
+.psfw-popup-container .psfw-popup-top a:focus {
+    outline-color: transparent;
 }
 
 /* Media Query for popup  */

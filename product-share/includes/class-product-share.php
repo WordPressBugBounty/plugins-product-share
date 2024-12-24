@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.11';
+    protected $_version = '1.2.12';
 
     protected static $_instance = null;
 
@@ -169,6 +169,8 @@ class Product_Share{
             'copy_to_clipboard' => ( empty( $get_option['copy_to_clipboard'] ) ) ? 'no' : $get_option['copy_to_clipboard'],
 
             'all_icon' => ( empty( $get_option['all_icon'] ) ) ? 'no' : $get_option['all_icon'],
+
+            'all_icon_close' => ( empty( $get_option['all_icon_close'] ) ) ? 'no' : $get_option['all_icon_close'],
 
 
             'icon_title' => ( empty( $get_option['icon_title'] ) ) ? 'no' : $get_option['icon_title'],

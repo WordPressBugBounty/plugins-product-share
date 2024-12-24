@@ -1,7 +1,7 @@
-.regular-ele-width{
+.regular-ele-width {
     width: 20em;
 }
-.all-icons{
+.all-icons {
 	display: none;
 	background-color: #fff;
     padding: 30px;
@@ -10,7 +10,7 @@
     max-width: 450px;
 }
 
-.more-icons i{
+.more-icons i {
 	transition: all 0.2s ease-in-out;
 }
 
@@ -35,7 +35,7 @@
 	padding: 10px;
 }
 
-.checklist li span:hover{
+.checklist li span:hover {
 	cursor: move;
 }
 
@@ -43,7 +43,7 @@
     margin-right: 10px;
 }
 
-#sortable li{
+#sortable li {
 	text-transform: capitalize;
 }
 
@@ -78,7 +78,7 @@
 
 /*New CSS*/
 
-.psfw-lock-wrapper span{
+.psfw-lock-wrapper span {
     color: #9e0303;
     font-size: 16px;
     margin-top: 3px;

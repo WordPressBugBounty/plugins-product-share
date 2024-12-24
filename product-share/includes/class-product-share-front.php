@@ -84,6 +84,7 @@ class Product_Share_Front{
 		        array( 
 		            'copy_to_clipboard_text' => apply_filters( 'psfw_copy_to_clipboard_text', __('Copy to Clipboard', 'product-share') ),
 		            'copied_to_clipboard_text' => apply_filters( 'psfw_copied_to_clipboard_text', __('Copied to Clipboard', 'product-share') ),
+                    'encode_url' => Product_Share::get_options()->encode_url,
 		        )
 		    );
 
@@ -100,6 +101,7 @@ class Product_Share_Front{
 
     public function includes() {
         require_once dirname( __FILE__ ) . '/class-product-share-icons.php';
+        require_once dirname( __FILE__ ) . '/compatibility.php';
     }
 
     /**
@@ -126,7 +128,7 @@ class Product_Share_Front{
 
     }
 
-    public function display_share_link( ){
+    public function display_share_link(){
 
         if( apply_filters( 'psfw_display_default_icon', false ) ){
             return;
@@ -338,10 +340,20 @@ class Product_Share_Front{
             $selected_labels = product_share()->all_icons();
 
             echo sprintf(
-                "<div class='%s'><div class='%s'><h3 class='psfw-popup-title'>%s</h3><ul class='%s'>",
+                "<div class='%s'>
+                    <div class='%s'>
+                        <div class='%s'>
+                            <h3 class='psfw-popup-title'>%s</h3>
+                            %s
+                        </div>
+                    <ul class='%s'>",
                 esc_attr( apply_filters('psfw_popup_class', 'psfw-popup-container') ),
                 esc_attr( apply_filters('psfw_popup_inner_class', 'psfw-popup-inner-container') ),
+                Product_Share::get_options()->all_icon_close === 'no' ? esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top') ) : esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top with-close') ),
                 esc_attr( apply_filters('psfw_icon_title', __('Share On:', 'product-share')) ),
+                Product_Share::get_options()->all_icon_close === 'yes' ? wp_kses_post( apply_filters('psfw_popup_close_button', "
+                    <a href='#'><i class='fa-solid fa-xmark'></i></a>
+                ") ) : '',
                 esc_attr( apply_filters('psfw_popup_ul_class', 'psfw-popup-ul-container') )
             );
             $this->prepare_icons( $selected_labels, $icon_appearance );

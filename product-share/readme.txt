@@ -4,9 +4,9 @@ Tags: buttons, share, icons, social media, share buttons
 Requires PHP: 7.3
 Requires at least: 4.8
 WC requires at least: 5.5
-Tested up to: 6.6
-WC tested up to: 9.1
-Stable tag: 1.2.11
+Tested up to: 6.7
+WC tested up to: 9.5
+Stable tag: 1.2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,15 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.12 [24-12-2024] =
+* Feature: Close icon to dismiss all icons popup.
+* Update: WPCS standard using Plugin Check Plugin(PCP).
+* Enhancement: Plugin settings submit & reset link.
+* Add: Support for YITH WooCommerce Quick View plugin. Now dispaly the social icon on YITH Quick View Popup.
+* Fix: Textdomain issues.
+* Compatibility: Tested with WordPress 6.7 & WooCommerce 9.5.
+
 
 = 1.2.11 [10-09-2024] =
 * Add: Mastodon Icon.

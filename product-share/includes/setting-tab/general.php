@@ -182,6 +182,20 @@
                 )
             ); 
 
+            // All Icon Close Button
+            WPXtension_Setting_Fields::checkbox(
+                $options = array(
+                    'tr_class' => 'new',
+                    'label' => esc_attr__('Enable Popup Dismiss', 'product-share'),
+                    'value' => Product_Share::get_options()->all_icon_close,
+                    'name' => 'product_share_option[all_icon_close]',
+                    'default_value' => 'yes',
+                    'checkbox_label' => esc_attr__('Display a "Close" button on the social icons popup to dismiss.', 'product-share'),
+                    'need_pro' => false,
+                    'tag' => esc_attr__('New', 'product-share'),
+                )
+            ); 
+
         ?>
     </table>
 
@@ -306,7 +320,7 @@
                     'value' => Product_Share::get_options()->float_icon,
                     'name' => 'product_share_option[float_icon]',
                     'default_value' => 'yes',
-                    'checkbox_label' => esc_attr__('Enable Foating Social Icon on Single Product Page.', 'product-share'),
+                    'checkbox_label' => esc_attr__('Enable Floating Social Icon on Single Product Page.', 'product-share'),
                     'note' => '',
                     'need_pro' => true,
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),

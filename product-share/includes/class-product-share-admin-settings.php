@@ -114,7 +114,7 @@ class Product_Share_Admin_Settings{
         array_unshift( $links, $settings_link );
 
         if( !Product_Share::check_plugin_state('product-share-pro') ){
-            $pro_link = "<a style='font-weight: bold; color: #8012f9;' href='https://wpxtension.com/product/social-share-for-woocommerce/' target='_blank'>" . __( 'Go Premium' ) . '</a>';
+            $pro_link = "<a style='font-weight: bold; color: #8012f9;' href='https://wpxtension.com/product/social-share-for-woocommerce/' target='_blank'>" . __( 'Go Premium', 'product-share' ) . '</a>';
             array_push( $links, $pro_link );
         }
         return $links; 

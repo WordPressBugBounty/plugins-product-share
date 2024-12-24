@@ -20,7 +20,8 @@
         $plugin_name = isset($_GET['page']) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
         
         //Get the active tab from the $_GET param
-        $curTab = isset($_GET['tab']) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : null;
+        $default_tab = null;
+        $curTab = isset($_GET['tab']) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : $default_tab;
     }
 
     do_action('psfw_layout_start');
@@ -63,7 +64,7 @@
                     
                     <?php 
 
-                    submit_button( __( 'Save Settings', 'product-share' ), 'primary', 'psfw-save-settings', false); 
+                    // submit_button( __( 'Save Settings', 'product-share' ), 'primary', 'psfw-save-settings', false); 
 
                     // Making Nonce URL for Reset Link
 
@@ -82,9 +83,32 @@
 
                     $reset_url  = add_query_arg( wp_parse_args( $reset_url_args, $action_url_args ), admin_url( 'admin.php' ) );
 
+                    /**
+                     * 
+                     * Condition if companion installed and activated display the submit/reset button for all tab
+                     * if companion is not activated then display submit/reset button only for General tab
+                     * 
+                     * @since 1.2.12
+                     * 
+                     * @return $curTab returns null for General tab
+                     * 
+                     */ 
+
+                    if( Product_Share::check_plugin_state('product-share-pro') ){
+                        submit_button( __( 'Save Settings', 'product-share' ), 'primary', 'psfw-save-settings', false); 
+                    ?>
+                        <a onclick="return confirm('<?php esc_html_e( 'Are you sure to reset?', 'product-share' ) ?>')" class="submitdelete" href="<?php echo esc_url( $reset_url ) ?>"><?php esc_attr_e( 'Reset Current Tab', 'product-share' ); ?></a>
+                    <?php
+                    }
+                    if( !Product_Share::check_plugin_state('product-share-pro') && null === $curTab ){
+                        submit_button( __( 'Save Settings', 'product-share' ), 'primary', 'psfw-save-settings', false); 
+                    ?>
+                        <a onclick="return confirm('<?php esc_html_e( 'Are you sure to reset?', 'product-share' ) ?>')" class="submitdelete" href="<?php echo esc_url( $reset_url ) ?>"><?php esc_attr_e( 'Reset Current Tab', 'product-share' ); ?></a>
+                    <?php
+                    }
+
                     ?>
                     
-                    <a onclick="return confirm('<?php esc_html_e( 'Are you sure to reset?', 'product-share' ) ?>')" class="submitdelete" href="<?php echo esc_url( $reset_url ) ?>"><?php esc_attr_e( 'Reset Current Tab', 'woocommerce' ); ?></a>
                 </p>
                 
 

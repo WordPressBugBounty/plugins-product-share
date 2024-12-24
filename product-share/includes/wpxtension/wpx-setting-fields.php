@@ -28,6 +28,24 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
 
         }
 
+        /**
+         *
+         * Display a link tor pro plugin link if Pro is not installed
+         *
+         */
+
+        public static function pro_link($plugin){
+
+            // echo "<h1>".self::$_plugin."</h1>";
+            if( !$plugin ){
+
+                echo wp_kses_post( sprintf('<p><a style="color: #9e0303;" href="https://wpxtension.com/product/social-share-for-woocommerce/" target="_blank">%s</a>',
+                    __('Unlock this feature >>>', 'product-share')
+                ) );
+            }
+
+        }
+
 
         /**
          *
@@ -80,6 +98,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                             );
                             // echo $options['need_pro'];
                         ?>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'], $pro_exists) ); ?>">
 
@@ -121,6 +140,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                                 echo wp_kses_post( $label );
                             ?>
                         </label>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'], $pro_exists) ); ?>">
                         <label>
@@ -152,6 +172,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                                 echo wp_kses_post( $label );
                             ?>
                         </label>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
                         <label>
@@ -174,6 +195,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                             $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
                             echo wp_kses_post( $label );
                         ?>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
                         <label class="wpx-number-group">
@@ -201,6 +223,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                                 echo wp_kses_post( $label );
                             ?>
                         </label>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
                         <label>
@@ -252,6 +275,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                             );
                             // echo $options['need_pro'];
                         ?>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'], $pro_exists) ); ?>">
 
