@@ -1,6 +1,6 @@
 {
   "name": "product-share",
-  "version": "1.2.12",
+  "version": "1.2.13",
   "description": "Display social icons on the different spots of product pages to share your WooCommerce product on social media sites.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "pot": "npx @wp-blocks/make-pot . languages/product-share.pot",
     "packages-update": "wp-scripts packages-update",
     "plugin-zip": "wp-scripts plugin-zip",
-    "all": "npm-run-all --serial min-js min-css rtl-css rtl-min-css admin-min-js admin-min-css pot packages-update"
+    "all": "npm-run-all --serial min-js min-css rtl-css rtl-min-css admin-min-js admin-min-css pot"
   },
   "author": "wpxteam",
   "license": "ISC",
@@ -38,6 +38,6 @@
     "map": false
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.7.0"
+    "@wordpress/scripts": "^30.8.1"
   }
 }

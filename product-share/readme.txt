@@ -6,7 +6,7 @@ Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.7
 WC tested up to: 9.5
-Stable tag: 1.2.12
+Stable tag: 1.2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,9 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.13 [13-01-2025] =
+* Fix: Save setting by pressing enter keyboard button.
 
 = 1.2.12 [24-12-2024] =
 * Feature: Close icon to dismiss all icons popup.

@@ -9,6 +9,7 @@
         var link = $(this);
 
         e.preventDefault();
+        
         $('.all-icons').slideToggle('slow', function(){
           if ($(this).is(':visible')) {
             link.addClass('close');

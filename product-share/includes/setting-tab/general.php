@@ -44,7 +44,7 @@
 
                 </ul>
 
-                <button class="more-icons"><i class="fas fa-plus"></i> <?php echo esc_attr__('More Icons', 'product-share'); ?></button>
+                <button class="more-icons" type="button"><i class="fas fa-plus"></i> <?php echo esc_attr__('More Icons', 'product-share'); ?></button>
 
                 <div class="all-icons">
 
@@ -303,6 +303,24 @@
                 ),
             );
 
+            // Product Wrapper Class
+            WPXtension_Setting_Fields::text(
+                $options = array(
+                    'tr_class' => 'new',
+                    'label' => esc_attr__('Container Class', 'product-share-pro'),
+                    'ele_class' => '',
+                    'value' => Product_Share::get_options()->container_class,
+                    'name' => 'product_share_option[container_class]',
+                    'note' => __('Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.product.product-type-variable</code>. <br>Target a container to ensure that both `variation_id input` and `social share icons` are inside of it.', 'product-share-pro'),
+                    'note_info' => __('Keep blank, if you don\'t have any issues with variation dropdown(s) base share URL. This field is for fixing variation dropdown(s) base URL changing compatibility issue.', 'product-share-pro'),
+                    'placeholder' => '.product.product-type-variable',
+                    'need_pro' => false,
+                    'tag' => esc_attr__('New', 'product-share-pro'),
+                    'need_pro' => true,
+                    'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
+                )
+            ); 
+
 
         ?>
 
@@ -362,7 +380,7 @@
             // Enable on Shop/Archive
             WPXtension_Setting_Fields::checkbox(
                 $options = array(
-                    'tr_class' => 'alternate new',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable on Archive/Shop', 'product-share'),
                     'value' => Product_Share::get_options()->social_share_archive,
                     'name' => 'product_share_option[social_share_archive]',
@@ -370,7 +388,6 @@
                     'checkbox_label' => esc_attr__('Enable Social Icon on Archive/Shop page for each Product.', 'product-share'),
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 
@@ -378,7 +395,7 @@
             // Button Appearance
             WPXtension_Setting_Fields::select(
                 $options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => '',
                     'label' => esc_attr__('Button Appearance', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_appearance,
                     'name' => 'product_share_option[archive_button_appearance]',
@@ -401,7 +418,6 @@
                     )),
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 
@@ -409,7 +425,7 @@
             // Button Position
             WPXtension_Setting_Fields::select(
                 $options = array(
-                    'tr_class' => 'alternate new',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Position', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_position,
                     'name' => 'product_share_option[archive_button_position]',
@@ -427,7 +443,6 @@
                     )),
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 
@@ -435,7 +450,7 @@
             // Archive button Shape
             WPXtension_Setting_Fields::select(
                 $options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => '',
                     'label' => esc_attr__('Shape', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_shape,
                     'name' => 'product_share_option[archive_button_shape]',
@@ -458,7 +473,6 @@
                     )),
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 
@@ -466,14 +480,13 @@
             // Button Color
             WPXtension_Setting_Fields::color(
                 $options = array(
-                    'tr_class' => 'alternate new',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Color', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_color,
                     'name' => 'product_share_option[archive_button_color]',
                     'default_value' => Product_Share::get_options()->archive_button_color,
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 
@@ -481,14 +494,13 @@
             // Button Background Color
             WPXtension_Setting_Fields::color(
                 $options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => '',
                     'label' => esc_attr__('Background Color', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_bg_color,
                     'name' => 'product_share_option[archive_button_bg_color]',
                     'default_value' => Product_Share::get_options()->archive_button_bg_color,
                     'note' => '',
                     'need_pro' => true,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
             ); 

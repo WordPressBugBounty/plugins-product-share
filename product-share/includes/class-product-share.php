@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.12';
+    protected $_version = '1.2.13';
 
     protected static $_instance = null;
 
@@ -180,6 +180,8 @@ class Product_Share{
             'tooltip' => ( empty( $get_option['tooltip'] ) ) ? 'no' : $get_option['tooltip'],
 
             'variation_link' => ( empty( $get_option['variation_link'] ) ) ? 'no' : $get_option['variation_link'],
+
+            'container_class' => ( empty( $get_option['container_class'] ) ) ? '' : $get_option['container_class'],
 
 
             // ### Advanced Settings
