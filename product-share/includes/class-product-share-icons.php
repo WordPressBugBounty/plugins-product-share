@@ -43,7 +43,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.facebook.com/sharer/sharer.php?u=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
     		wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
     		wp_kses_post( $btn_format ),
     	);
@@ -55,7 +55,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://twitter.com/intent/tweet?url=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -65,7 +65,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.linkedin.com/shareArticle?mini=true&url=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -75,7 +75,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'viber://forward?text=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -85,7 +85,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://t.me/share/url?url=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -95,7 +95,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://api.whatsapp.com/send?text=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -105,7 +105,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://pinterest.com/pin/create/button/?url=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -115,7 +115,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.tumblr.com/widgets/share/tool?posttype=link&canonicalUrl=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -125,7 +125,7 @@ class Product_Share_Icons{
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://vk.com/share.php?url=',
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -135,7 +135,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://reddit.com/submit?url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -145,7 +145,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://www.xing.com/app/user?op=share&url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -155,7 +155,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://getpocket.com/save?url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -165,7 +165,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://compose.mail.yahoo.com/?body=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -175,7 +175,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://service.weibo.com/share/share.php?url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -185,7 +185,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://www.evernote.com/clip.action?url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -195,7 +195,7 @@ class Product_Share_Icons{
         echo sprintf(
             '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://mastodonshare.com/?url=',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
         );
@@ -216,7 +216,7 @@ class Product_Share_Icons{
     			esc_html( apply_filters( 'psfw_mail_body_text', __('Check this out: ', 'product-share') ) ),
                 esc_html( apply_filters( 'psfw_mail_address', 'address@somemail.com' ) )
     		),
-    		esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ),
+    		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
     	);
@@ -262,7 +262,7 @@ class Product_Share_Icons{
 
         echo sprintf(
             '<li><a id="psfw-all-icon" data-url="%1$s" data-psfw-href="" href="#" data-form-url="%1$s" %2$s>%3$s</a></li>',
-            esc_url( ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( get_permalink( $product_id ) ) : get_permalink( $product_id ) ), //urlencode was not applied here for readable copy to clipboard link feature. Browsers can't read the encoded URL.
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ), 
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format )
         );

@@ -307,15 +307,15 @@
             WPXtension_Setting_Fields::text(
                 $options = array(
                     'tr_class' => 'new',
-                    'label' => esc_attr__('Container Class', 'product-share-pro'),
+                    'label' => esc_attr__('Container Class', 'product-share'),
                     'ele_class' => '',
                     'value' => Product_Share::get_options()->container_class,
                     'name' => 'product_share_option[container_class]',
-                    'note' => __('Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.product.product-type-variable</code>. <br>Target a container to ensure that both `variation_id input` and `social share icons` are inside of it.', 'product-share-pro'),
-                    'note_info' => __('Keep blank, if you don\'t have any issues with variation dropdown(s) base share URL. This field is for fixing variation dropdown(s) base URL changing compatibility issue.', 'product-share-pro'),
+                    'note' => __('Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.product.product-type-variable</code>. <br>Target a container to ensure that both `variation_id input` and `social share icons` are inside of it.', 'product-share'),
+                    'note_info' => __('Keep blank, if you don\'t have any issues with variation dropdown(s) base share URL. This field is for fixing variation dropdown(s) base URL changing compatibility issue.', 'product-share'),
                     'placeholder' => '.product.product-type-variable',
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share-pro'),
+                    'tag' => esc_attr__('New', 'product-share'),
                     'need_pro' => true,
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )

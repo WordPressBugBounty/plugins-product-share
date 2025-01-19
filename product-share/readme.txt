@@ -6,7 +6,7 @@ Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.7
 WC tested up to: 9.5
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +159,10 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 
 == Changelog ==
 
+= 1.2.14 [19-01-2025] =
+* Fix: Extra `https://` issue if enabled `Encode URL` option.
+* Fix: Text domain issues.
+
 = 1.2.13 [13-01-2025] =
 * Fix: Save setting by pressing enter keyboard button.
 
@@ -288,6 +292,9 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.14 [19-01-2025] =
+* Fix: Extra `https://` issue if enabled Encode URL option.
 
 = 1.1.6.2 [12-04-2023] =
 * Fixed: Conditions for settings options. Please update to avoid unwanted behavior.
