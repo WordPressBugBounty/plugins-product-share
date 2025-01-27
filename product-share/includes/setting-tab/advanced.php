@@ -1,4 +1,4 @@
-<section class="advnaced" id="psfw-advanced-section">
+<section class="psfw-settings advnaced" id="psfw-advanced-section">
 
 <h3><?php esc_attr_e('Icon Title Style Settings', 'product-share'); ?></h3>
 

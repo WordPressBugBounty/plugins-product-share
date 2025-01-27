@@ -2,13 +2,13 @@
 # This file is distributed under the GPLv2 or later license.
 msgid ""
 msgstr ""
-"Project-Id-Version: product-share 1.2.14\n"
+"Project-Id-Version: product-share 1.2.15\n"
 "Report-Msgid-Bugs-To: WPXtension <EMAIL>\n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"POT-Creation-Date: 2025-01-19T09:37:22.053Z\n"
+"POT-Creation-Date: 2025-01-27T06:41:20.400Z\n"
 "PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: WPXtension <EMAIL>\n"
 "Language-Team: WPXtension <EMAIL>\n"
@@ -85,18 +85,18 @@ msgstr ""
 msgid "Share On:"
 msgstr ""
 
-#: includes/class-product-share-icons.php:216
+#: includes/class-product-share-icons.php:233
 msgid "Check this out: "
 msgstr ""
 
-#: includes/class-product-share-icons.php:232
-#: includes/class-product-share-icons.php:237
+#: includes/class-product-share-icons.php:249
+#: includes/class-product-share-icons.php:254
 #: includes/class-product-share-front.php:85
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: includes/class-product-share-icons.php:255
-#: includes/class-product-share-icons.php:260
+#: includes/class-product-share-icons.php:272
+#: includes/class-product-share-icons.php:277
 #: includes/class-product-share-front.php:324
 msgid "All Icon"
 msgstr ""

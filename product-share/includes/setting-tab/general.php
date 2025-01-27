@@ -1,4 +1,4 @@
-<section class="general" id="psfw-general-section">
+<section class="psfw-settings general" id="psfw-general-section">
 
     <h3>Icon Settings</h3>
     <table class="widefat wpx-table">

@@ -28,7 +28,7 @@
 ?>
 
 <!-- Here are our tabs -->
-<nav class="nav-tab-wrapper">
+<nav class="nav-tab-wrapper psfw-nav-wrapper">
 <?php 
     $tab = "<a href='?page=product-share' class='nav-tab ".($curTab===null ? 'nav-tab-active' : null)."'> ".__('General', 'product-share')."</a>";
     $tab .= "<a href='?page=product-share&tab=advanced' class='nav-tab ".($curTab==='advanced' ? 'nav-tab-active' : null)."'> ".WPXtension_Setting_Fields::pro_not_exist(Product_Share::check_plugin_state('product-share-pro')).__(' Advanced', 'product-share')."</a>";

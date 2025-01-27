@@ -5,8 +5,8 @@ Requires PHP: 7.3
 Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.7
-WC tested up to: 9.5
-Stable tag: 1.2.14
+WC tested up to: 9.6
+Stable tag: 1.2.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,12 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.15 [27-01-2025] =
+* Fix: Pinterest social icon URL issue. Updated to the new structure of the Pinterest URL.
+* Update: Settings panel update.
+* Update: Removed `https://` protocol and added `//`. It works for both HTTP and HTTPS.
+* Compatibility: WooCommerce 9.6.
 
 = 1.2.14 [19-01-2025] =
 * Fix: Extra `https://` issue if enabled `Encode URL` option.
