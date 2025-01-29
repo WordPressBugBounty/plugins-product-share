@@ -1,6 +1,6 @@
 {
   "name": "product-share",
-  "version": "1.2.15",
+  "version": "1.2.15.1",
   "description": "Display social icons on the different spots of product pages to share your WooCommerce product on social media sites.",
   "main": "index.js",
   "scripts": {

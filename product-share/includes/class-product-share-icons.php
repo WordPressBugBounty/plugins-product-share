@@ -112,14 +112,14 @@ class Product_Share_Icons{
         $product = wc_get_product( $product_id );
 
         $product_image = get_the_post_thumbnail_url( $product_id ) ? get_the_post_thumbnail_url( $product_id ) : wc_placeholder_img_src();
-        $product_description = $product->get_description();
+        $product_title = $product->get_title();
 
 
     	echo sprintf(
     		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		sprintf( '//pinterest.com/pin/create/button/?media=%1$s&description=%2$s&url=',
                 esc_url( $product_image ),
-                wp_kses_post( $product_description )
+                wp_kses_post( $product_title )
 
             ),
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
