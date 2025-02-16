@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.15.1';
+    protected $_version = '1.2.16';
 
     protected static $_instance = null;
 
@@ -295,6 +295,7 @@ class Product_Share{
             'weibo' => 'Weibo',
             'evernote' => 'Evernote',
             'mastodon' => 'Mastodon',
+            'bluesky' => 'Bluesky',
             'envelope' => 'Email'
         );
         

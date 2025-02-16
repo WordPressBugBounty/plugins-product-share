@@ -66,9 +66,33 @@ class Product_Share_Admin_Settings{
     }
 
     public static function register_psfw_setting(){
-    	register_setting( 'product-share-group', 'product_share_option' );
-        register_setting( 'product-share-group_adavanced', 'product_share_option_advanced' );
-        register_setting( 'product-share-group_license', 'product_share_license' );
+        // phpcs:disable PluginCheck.CodeAnalysis.SettingSanitization.register_settingDynamic
+        // Sanitized the option inside the `sanitize_array` method
+    	register_setting( 'product-share-group', 'product_share_option', 'sanitize_array' );
+        register_setting( 'product-share-group_adavanced', 'product_share_option_advanced', 'sanitize_array' );
+        register_setting( 'product-share-group_license', 'product_share_license', 'sanitize_text_field' );
+    }
+
+    /**
+     * Sanitize the array
+     *
+     * @param      array  $options           The address input.
+     *
+     * @return     array  $santized_options  The sanitized input.
+     */
+    public function sanitize_array( $options ) : array{
+
+        // Initialize the new array that will hold the sanitize values
+        $santized_options = array();
+
+        // Loop through the options and sanitize each of the values
+        foreach ( $options as $key => $value ) {
+            $santized_options[ $key ] = ( isset( $options[ $key ] ) ) ?
+            sanitize_text_field( $value ) :
+            '';
+        }
+
+        return $santized_options;
     }
 
     public static function admin_assets() {

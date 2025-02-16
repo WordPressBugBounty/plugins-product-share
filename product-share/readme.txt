@@ -6,7 +6,7 @@ Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.7
 WC tested up to: 9.6
-Stable tag: 1.2.15.1
+Stable tag: 1.2.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,11 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.16 [16-02-2025] =
+* Update: FontAwesome icon library updated to 6.7.2.
+* Add: Bluesky Icon.
+* WPCS check.
 
 = 1.2.15.1 [30-01-2025] =
 * Fix: Pinterest social icon URL issue. Updated the Pinterest URL.

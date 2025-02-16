@@ -2,13 +2,13 @@
 # This file is distributed under the GPLv2 or later license.
 msgid ""
 msgstr ""
-"Project-Id-Version: product-share 1.2.15.1\n"
+"Project-Id-Version: product-share 1.2.16\n"
 "Report-Msgid-Bugs-To: WPXtension <EMAIL>\n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"POT-Creation-Date: 2025-01-30T06:41:20.400Z\n"
+"POT-Creation-Date: 2025-02-16T09:19:29.731Z\n"
 "PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: WPXtension <EMAIL>\n"
 "Language-Team: WPXtension <EMAIL>\n"
@@ -80,24 +80,24 @@ msgstr ""
 
 #: includes/class-product-share.php:199
 #: includes/class-product-share-front.php:145
-#: includes/class-product-share-front.php:353
+#: includes/class-product-share-front.php:357
 #: includes/setting-tab/advanced.php:20
 msgid "Share On:"
 msgstr ""
 
-#: includes/class-product-share-icons.php:233
+#: includes/class-product-share-icons.php:243
 msgid "Check this out: "
 msgstr ""
 
-#: includes/class-product-share-icons.php:249
-#: includes/class-product-share-icons.php:254
+#: includes/class-product-share-icons.php:259
+#: includes/class-product-share-icons.php:264
 #: includes/class-product-share-front.php:85
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: includes/class-product-share-icons.php:272
-#: includes/class-product-share-icons.php:277
-#: includes/class-product-share-front.php:324
+#: includes/class-product-share-icons.php:282
+#: includes/class-product-share-icons.php:287
+#: includes/class-product-share-front.php:328
 msgid "All Icon"
 msgstr ""
 
@@ -110,19 +110,19 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: includes/class-product-share-front.php:318
+#: includes/class-product-share-front.php:322
 msgid "Copy Link"
 msgstr ""
 
-#: includes/class-product-share-admin-settings.php:111
+#: includes/class-product-share-admin-settings.php:135
 msgid "Settings"
 msgstr ""
 
-#: includes/class-product-share-admin-settings.php:117
+#: includes/class-product-share-admin-settings.php:141
 msgid "Go Premium"
 msgstr ""
 
-#: includes/class-product-share-admin-settings.php:158
+#: includes/class-product-share-admin-settings.php:182
 msgid "Security check"
 msgstr ""
 
