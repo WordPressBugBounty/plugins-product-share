@@ -6,7 +6,7 @@ Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.7
 WC tested up to: 9.6
-Stable tag: 1.2.16
+Stable tag: 1.2.16.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +159,10 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 
 == Changelog ==
 
+= 1.2.16.1 [27-02-2025] =
+* Security: check.
+* Compatibility: WooCommerce 9.7.
+
 = 1.2.16 [16-02-2025] =
 * Update: FontAwesome icon library updated to 6.7.2.
 * Add: Bluesky Icon.
@@ -170,7 +174,7 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 = 1.2.15 [27-01-2025] =
 * Fix: Pinterest social icon URL issue. Updated to the new structure of the Pinterest URL.
 * Update: Settings panel update.
-* Update: Removed `https://` protocol and added `//`. It works for both HTTP and HTTPS.
+* Update: Removed https:// protocol and added //. It works for both HTTP and HTTPS.
 * Compatibility: WooCommerce 9.6.
 
 = 1.2.14 [19-01-2025] =

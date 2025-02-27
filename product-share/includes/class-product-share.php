@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.16';
+    protected $_version = '1.2.16.1';
 
     protected static $_instance = null;
 

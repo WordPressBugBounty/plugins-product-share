@@ -178,10 +178,7 @@ class Product_Share_Admin_Settings{
         if( isset( $_GET['action'] ) && 'reset' === $_GET['action'] ){
 
             //In our file that handles the request, verify the nonce.
-            if ( isset( $_REQUEST['_wpnonce'] ) && ! wp_verify_nonce( sanitize_key( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'psfw-settings' ) ) {
-                die( esc_html__( 'Security check', 'product-share' ) ); 
-            } else {
-                
+            if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_key( wp_unslash( $_GET['_wpnonce'] ) ), 'psfw-settings' ) ) {
                 if( isset( $_GET['tab'] ) && 'advanced' === $_GET['tab'] ){
                     delete_option('product_share_option_advanced');
                     wp_safe_redirect( admin_url( 'admin.php?page=product-share&tab=' . sanitize_key( wp_unslash( $_GET['tab'] ) ) ) );
@@ -197,6 +194,9 @@ class Product_Share_Admin_Settings{
                     wp_safe_redirect( admin_url( 'admin.php?page=product-share' ) );
                     exit();
                 }
+            } else {
+                
+                die( esc_html__( 'Security check', 'product-share' ) ); 
 
             }
 
