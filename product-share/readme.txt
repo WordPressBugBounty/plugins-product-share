@@ -4,9 +4,9 @@ Tags: buttons, share, icons, social media, share buttons
 Requires PHP: 7.3
 Requires at least: 4.8
 WC requires at least: 5.5
-Tested up to: 6.7
-WC tested up to: 9.6
-Stable tag: 1.2.16.1
+Tested up to: 6.8
+WC tested up to: 9.8
+Stable tag: 1.2.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,11 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.17 [22-04-2025] =
+* Feature: More shapes for icon.
+* Update: Styles of icon.
+* Compatibility: Tested with WordPress 6.8 & WooCommerce 9.8.
 
 = 1.2.16.1 [27-02-2025] =
 * Security: check.

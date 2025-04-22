@@ -128,7 +128,7 @@
             // Social Button Shape
             WPXtension_Setting_Fields::select(
                 $options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => 'alternate new',
                     'label' => esc_attr__('Social Button Shape', 'product-share'),
                     'value' => Product_Share::get_options()->button_shape,
                     'name' => 'product_share_option[button_shape]',
@@ -148,9 +148,25 @@
                             'value' => 'rounded_corner',
                             'need_pro' => false,
                         ),
+                        'option_4' => array(
+                            'name' => 'Leaf (Left)',
+                            'value' => 'leaf_left',
+                            'need_pro' => false,
+                        ),
+                        'option_5' => array(
+                            'name' => 'Leaf (Right)',
+                            'value' => 'leaf_right',
+                            'need_pro' => false,
+                        ),
+                        'option_6' => array(
+                            'name' => 'TV Screen',
+                            'value' => 'tv_screen',
+                            'need_pro' => false,
+                        ),
                     )),
                     'note' => '',
                     'need_pro' => false,
+                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 
@@ -450,7 +466,7 @@
             // Archive button Shape
             WPXtension_Setting_Fields::select(
                 $options = array(
-                    'tr_class' => '',
+                    'tr_class' => 'new',
                     'label' => esc_attr__('Shape', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_shape,
                     'name' => 'product_share_option[archive_button_shape]',
@@ -470,10 +486,26 @@
                             'value' => 'rounded_corner',
                             'need_pro' => true,
                         ),
+                        'option_4' => array(
+                            'name' => 'Leaf (Left)',
+                            'value' => 'leaf_left',
+                            'need_pro' => false,
+                        ),
+                        'option_5' => array(
+                            'name' => 'Leaf (Right)',
+                            'value' => 'leaf_right',
+                            'need_pro' => false,
+                        ),
+                        'option_6' => array(
+                            'name' => 'TV Screen',
+                            'value' => 'tv_screen',
+                            'need_pro' => false,
+                        ),
                     )),
                     'note' => '',
                     'need_pro' => true,
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
+                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 

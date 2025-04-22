@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.16.1';
+    protected $_version = '1.2.17';
 
     protected static $_instance = null;
 
@@ -63,7 +63,7 @@ class Product_Share{
     public function init() {
 
         // Load TextDomain
-        add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+        add_action( 'init', array( $this, 'load_textdomain' ) );
         // Disable Field for Pro Feature
         // add_filter('psfw_need_pro', array( $this, 'disable_for_pro' ), 10, 2 );
 
@@ -196,7 +196,7 @@ class Product_Share{
 
             // Title Settings
 
-            'title_text' => ( empty( $get_option['title_text'] ) ) ? __('Share On:', 'product-share') : $get_option['title_text'],
+            'title_text' => ( empty( $get_option['title_text'] ) ) ? 'Share On:' : $get_option['title_text'],
 
             'title_color' => ( empty( $get_option['title_color'] ) ) ? '#000000' : $get_option['title_color'],
 

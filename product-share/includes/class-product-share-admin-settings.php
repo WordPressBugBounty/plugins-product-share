@@ -47,6 +47,12 @@ class Product_Share_Admin_Settings{
     	return get_option( 'product_share_option' );
     }
 
+    /**
+     * Adding necessary functions for option.php
+     *
+     * @param      <string>  $plugin_name  The plugin name
+     * @param      <string>  $curTab       The current tab
+     */
     public static function tab_contents( $plugin_name, $curTab ){
 
         if( 'product-share' !==  $plugin_name ){
@@ -145,11 +151,15 @@ class Product_Share_Admin_Settings{
     }
 
     /**
-    * ====================================================
-    * Plugin row link for plugin listing page
-    * ====================================================
-    **/
-
+     * Plugin row link for plugin listing page
+     *
+     * @param      <array>  $plugin_meta  The plugin meta
+     * @param      <string>  $plugin_file  The plugin file
+     * @param      <type>  $plugin_data  The plugin data
+     * @param      <type>  $status       The status
+     *
+     * @return     <array>  ( description_of_the_return_value )
+     */
     public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 
         if ( strpos( $plugin_file, 'product-share.php' ) !== false ) {

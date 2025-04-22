@@ -37,6 +37,24 @@ ul.psfw-social-icons.icon_with_text li a i{
     margin-left: 5px;
 }
 
+/* Left Left Shape  */
+
+ul.psfw-social-icons.leaf_left li a {
+    border-radius: 2% 40%;
+}
+
+/* Left Right Shape  */
+
+ul.psfw-social-icons.leaf_right li a {
+    border-radius: 40% 2%;
+}
+
+/* TV Screen Shape  */
+
+ul.psfw-social-icons.tv_screen li a {
+    border-radius: 50% / 10%;
+}
+
 /* Rounded Corner Shape  */
 
 ul.psfw-social-icons.rounded_corner li a {
