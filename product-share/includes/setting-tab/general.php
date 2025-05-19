@@ -320,7 +320,7 @@
             );
 
             // Product Wrapper Class
-            WPXtension_Setting_Fields::text(
+            WPXtension_Setting_Fields::textarea(
                 $options = array(
                     'tr_class' => 'new',
                     'label' => esc_attr__('Container Class', 'product-share'),
