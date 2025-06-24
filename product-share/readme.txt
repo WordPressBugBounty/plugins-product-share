@@ -5,8 +5,8 @@ Requires PHP: 7.3
 Requires at least: 4.8
 WC requires at least: 5.5
 Tested up to: 6.8
-WC tested up to: 9.8
-Stable tag: 1.2.18
+WC tested up to: 9.9
+Stable tag: 1.2.18.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,10 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.18.1 [24-06-2025] =
+* Fix: `get_title` function error when products are not found on the shop/archive page.
+* Compatibility: Tested with WooCommerce 9.9.
 
 = 1.2.18 [19-05-2025] =
 * Update: Settings Framework.

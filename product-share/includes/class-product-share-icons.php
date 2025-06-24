@@ -111,6 +111,11 @@ class Product_Share_Icons{
 
         $product = wc_get_product( $product_id );
 
+        // Don't run the rest of method, if product is not found.
+        if( !$product ){
+            return;
+        }
+
         $product_image = get_the_post_thumbnail_url( $product_id ) ? get_the_post_thumbnail_url( $product_id ) : wc_placeholder_img_src();
         $product_title = $product->get_title();
 

@@ -4,13 +4,13 @@
  * Plugin URI: https://wordpress.org/plugins/product-share/
  * Description: Display social icons on the different spots of product pages to share your WooCommerce product on social media.
  * Author: WPXtension
- * Version: 1.2.18
+ * Version: 1.2.18.1
  * Domain Path: /languages
  * Requires at least: 5.5
  * Tested up to: 6.8
  * Requires PHP: 7.3
  * WC requires at least: 5.5
- * WC tested up to: 9.8
+ * WC tested up to: 9.9
  * Text Domain: product-share
  * Author URI: https://wpxtension.com
  * License: GPLv2 or later
