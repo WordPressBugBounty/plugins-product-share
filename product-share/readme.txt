@@ -2,11 +2,11 @@
 Contributors: wpxteam
 Tags: buttons, share, icons, social media, share buttons
 Requires PHP: 7.3
-Requires at least: 4.8
+Requires at least: 5.5
 WC requires at least: 5.5
 Tested up to: 6.8
-WC tested up to: 9.9
-Stable tag: 1.2.18.1
+WC tested up to: 10.1.0
+Stable tag: 1.2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,7 @@ Keep your product page clean by displaying icons of the most popular social plat
 👉 [Variation Price Display Range for WooCommerce](https://wordpress.org/plugins/variation-price-display/)
 👉 [Fast Cart for WooCommerce](https://wordpress.org/plugins/fast-cart/)
 👉 [Product Variation Table for WooCommerce - PVT](https://wordpress.org/plugins/product-variant-table-for-woocommerce/)
+👉 [VariationX - Variations as Radio Buttons for WooCommerce](https://wordpress.org/plugins/variations-as-radio-buttons/)
 
 == Installation ==
 
@@ -158,6 +159,12 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.19 [18-08-2025] =
+* Add: Threads Icon.
+* Update: Settings Framework.
+* Remove: `load_plugin_textdomain()` as it has been discouraged since WordPress version 4.6. When a plugin is hosted on WordPress.org, it is not necessary to manually include this function call for translations under the plugin slug. WordPress will automatically load the translations when needed.
+* Compatibility: Tested with WooCommerce 10.1.0.
 
 = 1.2.18.1 [24-06-2025] =
 * Fix: `get_title` function error when products are not found on the shop/archive page.

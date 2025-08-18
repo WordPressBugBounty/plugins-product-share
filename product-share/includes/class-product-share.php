@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.18.1';
+    protected $_version = '1.2.19';
 
     protected static $_instance = null;
 
@@ -62,24 +62,9 @@ class Product_Share{
      */
     public function init() {
 
-        // Load TextDomain
-        add_action( 'init', array( $this, 'load_textdomain' ) );
-        // Disable Field for Pro Feature
-        // add_filter('psfw_need_pro', array( $this, 'disable_for_pro' ), 10, 2 );
-
         $this->get_backend();
         $this->get_frontend();
     } 
-
-
-    /**
-     *
-     * Load Text Domain Folder
-     *
-     */
-    public function load_textdomain() {
-        load_plugin_textdomain( "product-share", false, basename( dirname( PRODUCT_SHARE_PLUGIN_FILE ) )."/languages" );
-    }
 
     /*
      * Includes files.
@@ -296,6 +281,7 @@ class Product_Share{
             'evernote' => 'Evernote',
             'mastodon' => 'Mastodon',
             'bluesky' => 'Bluesky',
+            'threads' => 'Threads',
             'envelope' => 'Email'
         );
         

@@ -299,6 +299,10 @@ class Product_Share_Front{
                      product_share()->get_frontend()->get_icons()->get_bluesky($icon_appearance, $btn_format, $text, $product_id);
                 break;
 
+                case "threads":
+                     product_share()->get_frontend()->get_icons()->get_threads($icon_appearance, $btn_format, $text, $product_id);
+                break;
+
                 case "envelope":
                      product_share()->get_frontend()->get_icons()->get_email($icon_appearance, $btn_format, $text, $product_id);
                 break;

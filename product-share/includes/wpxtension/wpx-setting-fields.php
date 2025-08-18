@@ -28,6 +28,23 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
 
         }
 
+
+        /**
+         *
+         * Display Lock icon if Pro is not installed
+         *
+         */
+
+        public static function pro_not_exist($plugin){
+
+            // echo "<h1>".self::$_plugin."</h1>";
+            if( !$plugin ){
+
+                return '<small class="wpx-lock-wrapper"><span class="dashicons dashicons-lock"></span></small>';
+            }
+
+        }
+
         /**
          *
          * Display a link tor pro plugin link if Pro is not installed
@@ -42,23 +59,6 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                 echo wp_kses_post( sprintf('<p><a style="color: #9e0303;" href="https://wpxtension.com/product/social-share-for-woocommerce/" target="_blank">%s</a>',
                     __('Unlock this feature >>>', 'product-share')
                 ) );
-            }
-
-        }
-
-
-        /**
-         *
-         * Display Lock icon if Pro is not installed
-         *
-         */
-
-        public static function pro_not_exist($plugin){
-
-            // echo "<h1>".self::$_plugin."</h1>";
-            if( !$plugin ){
-
-                return '<small class="wpx-lock-wrapper"><span class="dashicons dashicons-lock"></span></small>';
             }
 
         }
@@ -113,14 +113,13 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                             ?>
                         </select>
 
-                        <?php
-                            if( isset($options['note']) && $options['note'] !== '' ):
-                        ?>
+                        <?php if( isset($options['note']) && $options['note'] !== '' ): ?>
                             <p style="font-style: italic; color: red;"><?php echo wp_kses_post( $options['note'] ); ?></p>
-                        <?php
+                        <?php endif; ?>
 
-                            endif;
-                        ?>
+                        <?php if( isset( $options['note_info'] ) && $options['note_info'] !== ''  ): ?>
+                            <p style="font-style: italic; color: #222;"><?php echo wp_kses_post( $options['note_info'] ); ?></p>
+                        <?php endif; ?>
                     </td>
 
                 </tr>
@@ -191,18 +190,25 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                 <tr class="<?php echo esc_attr($options['tr_class']); ?>" valign="top" data-new-tag="<?php echo ( isset( $options['tag'] ) ) ? esc_attr($options['tag']) : ''; ?>">
 
                     <td class="row-title" scope="row">
-                        <?php
-                            $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
-                            echo wp_kses_post( $label );
-                        ?>
+                        <label for="tablecell">
+                            <?php
+                                $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
+                                echo wp_kses_post( $label );
+                            ?>
+                        </label>
                         <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
-                        <label class="wpx-number-group">
-                            <input class="wpx-number<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>" type='number' min="0" name='<?php echo esc_attr($options['name']); ?>' value='<?php echo esc_attr( $options['value'] ); ?>'/>
-                            <span>PX</span>
+                        <label class="wpx-number-group <?php echo ( isset( $options['value_type'] ) && $options['value_type'] === '' ) ? 'blank': ''; ?>">
+                            <input class="wpx-number<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>" type='number' min="<?php echo ( isset( $options['min'] ) ) ? esc_attr($options['min']) : -1; ?>" step="<?php echo ( isset( $options['step'] ) ) ? esc_attr($options['step']) : 5; ?>" name='<?php echo esc_attr($options['name']); ?>' value='<?php echo esc_attr( $options['value'] ); ?>'/>
+                            <?php 
+                                echo ( isset( $options['value_type'] ) && $options['value_type'] !== '' ) ? sprintf('<span>%s</span>', esc_attr( $options['value_type'] ) ) : '';
+                            ?>
                         </label>
                         <p style="font-style: italic; color: red;"><?php echo wp_kses_post( $options['note'] ); ?></p>
+                        <?php if( isset( $options['note_info'] ) && $options['note_info'] !== ''  ): ?>
+                            <p style="font-style: italic; color: #222;"><?php echo wp_kses_post( $options['note_info'] ); ?></p>
+                        <?php endif; ?>
                     </td>
 
                 </tr>
@@ -227,7 +233,7 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                     </td>
                     <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
                         <label>
-                            <input class='regular-text<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>' type='text' name='<?php echo esc_attr($options['name']); ?>' value='<?php echo ( !$license ) ? esc_html( $options['value'] ) : ''; ?>' placeholder='<?php echo esc_attr($options['placeholder']); ?>' />
+                            <input class='regular-text<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>' type='text' name='<?php echo esc_attr($options['name']); ?>' value='<?php echo ( !$license ) ? esc_attr( $options['value'] ) : ''; ?>' placeholder='<?php echo esc_attr($options['placeholder']); ?>' />
                             <?php if( $license && !empty( $options['value'] ) ): ?>
                                 <p>
                                     <span style="font-style: italic; font-weight: bold; color: green;">
@@ -325,6 +331,56 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                         </label>
 
                         <?php if( isset( $options['note'] ) && $options['note'] !== ''  ): ?>
+                            <p style="font-style: italic; color: red;"><?php echo wp_kses_post( $options['note'] ); ?></p>
+                        <?php endif; ?>
+
+                        <?php if( isset( $options['note_info'] ) && $options['note_info'] !== ''  ): ?>
+                            <p style="font-style: italic; color: #222;"><?php echo wp_kses_post( $options['note_info'] ); ?></p>
+                        <?php endif; ?>
+                    </td>
+
+                </tr>
+            <?php
+        }
+
+        // Radio Option
+        public static function radio($options = []){
+
+            $pro_exists = isset( $options['pro_exists'] ) ? $options['pro_exists'] : false;
+
+            ?>
+                <tr class="<?php echo esc_attr($options['tr_class']); ?>" valign="top" data-new-tag="<?php echo ( isset( $options['tag'] ) ) ? esc_attr($options['tag']) : ''; ?>">
+
+                    <td class="row-title" scope="row">
+                        <?php
+                            $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
+                            echo sprintf(
+                                '<label>%s</label>',
+                                wp_kses_post( $label )
+                            );
+                            // echo $options['need_pro'];
+                        ?>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
+                    </td>
+                    <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'], $pro_exists) ); ?>">
+
+                        <fieldset class="regular-ele-width<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>" id='<?php echo esc_attr($options['name']); ?>'>
+                            <?php 
+                                foreach( $options['option'] as $select_option ){
+                            ?>
+                                <div class="radio-item">
+                                    <input type="radio" id="<?php echo esc_attr($select_option['value']); ?>" name="<?php echo esc_attr($options['name']); ?>" value="<?php echo esc_attr($select_option['value']); ?>" <?php echo ( $select_option['need_pro'] === true && !$pro_exists ) ? 'disabled' : ''; ?>
+                                        <?php echo $options['value'] == $select_option['value'] ? "checked" : ''; ?> />
+                                    <label for="<?php echo esc_attr($select_option['value']); ?>">
+                                        <?php echo esc_attr($select_option['name']); ?>
+                                    </label>
+                                </div>
+                            <?php 
+                                } 
+                            ?>
+                        </fieldset>
+
+                        <?php if( isset($options['note']) && $options['note'] !== '' ): ?>
                             <p style="font-style: italic; color: red;"><?php echo wp_kses_post( $options['note'] ); ?></p>
                         <?php endif; ?>
 
