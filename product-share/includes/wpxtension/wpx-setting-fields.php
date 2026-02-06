@@ -392,6 +392,40 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
                 </tr>
             <?php
         }
+        // Toogle Field
+        public static function toggle( $options = [] ){
+            $pro_exists = isset( $options['pro_exists'] ) ? $options['pro_exists'] : false;
+            ?>
+            <tr class="<?php echo esc_attr($options['tr_class']); ?>" valign="top" data-new-tag="<?php echo ( isset( $options['tag'] ) ) ? esc_attr($options['tag']) : ''; ?>">
+
+                    <td class="row-title" scope="row">
+
+                        <?php
+                            $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
+                            echo wp_kses_post( $label );
+                        ?>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
+                    </td>
+                    <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'], $pro_exists) ); ?>">
+                        <div class="wpx-toggle-wrapper">
+                            <input type="radio" id="<?php echo esc_attr($options['id']); ?>-no" name="<?php echo esc_attr($options['name']); ?>" value="no" <?php checked( esc_attr($options['value'] ), 'no' , true ); ?> />
+                            <label data-label-for="radio-no" for="<?php echo esc_attr($options['id']); ?>-no" class="wpx-toggle-label">No</label>
+
+                            <input type="radio" id="<?php echo esc_attr($options['id']); ?>-yes" name="<?php echo esc_attr($options['name']); ?>" value="yes" <?php checked( esc_attr($options['value'] ), 'yes', true ); ?> />
+                            <label data-label-for="radio-no" for="<?php echo esc_attr($options['id']); ?>-yes" class="wpx-toggle-label">Yes</label>
+                        </div>
+                        <p><?php echo esc_html( $options['toggle_label'] ); ?></p>
+                        <?php if( isset( $options['note'] ) && $options['note'] !== ''  ): ?>
+                            <p style="font-style: italic; color: red;"><?php echo esc_html( $options['note'] ); ?></p>
+                        <?php endif; ?>
+
+                        <?php if( isset( $options['note_info'] ) && $options['note_info'] !== ''  ): ?>
+                            <p style="font-style: italic; color: #222;"><?php echo esc_html( $options['note_info'] ); ?></p>
+                        <?php endif; ?>
+                    </td>
+            </tr>
+        <?php
+        }
 
     }
 

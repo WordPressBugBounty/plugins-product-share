@@ -1,12 +1,13 @@
 === Social Share for WooCommerce ===
 Contributors: wpxteam
+Donate link: https://wpxtension.com
 Tags: buttons, share, icons, social media, share buttons
 Requires PHP: 7.3
 Requires at least: 5.5
 WC requires at least: 5.5
-Tested up to: 6.8
-WC tested up to: 10.1.0
-Stable tag: 1.2.19
+Tested up to: 6.9
+WC tested up to: 10.4.3
+Stable tag: 1.2.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +160,17 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 6. Settings Link.
 
 == Changelog ==
+
+= 1.2.21 [31-01-2026] =
+* Add: Buffer Icon.
+* Update: Rechecked and Updated codebase using Plugin Check Plugin (PCP) WPCS coding standards.
+* Compatibility: Tested with WooCommerce 10.4.3.
+
+= 1.2.20 [07-12-2025] =
+* Add: Gmail Icon.
+* Update: Settings Framework.
+* Update: All hooks/functions follow the Plugin Check Plugin (PCP) WPCS coding standards.
+* Compatibility: Tested with WordPress 6.9 & WooCommerce 10.3.6.
 
 = 1.2.19 [18-08-2025] =
 * Add: Threads Icon.

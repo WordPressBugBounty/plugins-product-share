@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Product_Share_Admin_Settings{
 	
 	protected static $_instance = null;

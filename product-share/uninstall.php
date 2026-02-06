@@ -5,11 +5,11 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     die;
 }
 
-$options_array = array(
+$psfw_options_array = array(
 	'product_share_option',
 );
 
-foreach ($options_array as $key => $option) {
-	delete_option($option);
+foreach ($psfw_options_array as $psfw_key => $psfw_option) {
+	delete_option($psfw_option);
 }
  

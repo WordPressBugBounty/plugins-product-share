@@ -243,6 +243,43 @@ class Product_Share_Icons{
         );
     }
 
+    public function get_gmail( $icon_appearance, $btn_format, $text, $product_id ){
+        echo sprintf(
+            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            'https://mail.google.com/mail/?view=cm&fs=1&body=',
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
+            wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
+            wp_kses_post( $btn_format ),
+        );
+    }
+
+    public function get_buffer( $icon_appearance, $btn_format, $text, $product_id ){
+
+        /**
+         * @since 1.2.21
+         */
+
+        $product = wc_get_product( $product_id );
+
+        // Don't run the rest of method, if product is not found.
+        if( !$product ){
+            return;
+        }
+
+        $product_title = urlencode($product->get_title());
+
+        echo sprintf(
+            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            sprintf( 
+                'https://buffer.com/add?text=%s&url=',
+                esc_attr( $product_title )
+            ),
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
+            wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
+            wp_kses_post( $btn_format ),
+        );
+    }
+
 
     public function get_email($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
@@ -320,6 +357,8 @@ class Product_Share_Icons{
 
         // Added @version 1.2.7
         ('pocket' === $key ) ? $key = 'get-pocket' :  $key; 
+        // Added @version 1.2.20
+        ('gmail' === $key ) ? $key = 'envelope' :  $key; 
 
         if( apply_filters( 'psfw_remove_twitter_x_icon', false ) ){
             return $key;

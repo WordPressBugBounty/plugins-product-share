@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Product_Share_Front{
 
@@ -181,6 +183,10 @@ class Product_Share_Front{
                 $font_type = 'solid';
             }
 
+            if( $key == 'gmail' ){
+                $font_type = 'regular';
+            }
+
             // Text Appearance 
             if( $key == 'whatsapp' ){
                 $text = 'WhatsApp';
@@ -301,6 +307,14 @@ class Product_Share_Front{
 
                 case "threads":
                      product_share()->get_frontend()->get_icons()->get_threads($icon_appearance, $btn_format, $text, $product_id);
+                break;
+
+                case "gmail":
+                     product_share()->get_frontend()->get_icons()->get_gmail($icon_appearance, $btn_format, $text, $product_id);
+                break;
+
+                case "buffer":
+                     product_share()->get_frontend()->get_icons()->get_buffer($icon_appearance, $btn_format, $text, $product_id);
                 break;
 
                 case "envelope":

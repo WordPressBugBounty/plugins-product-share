@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 <section class="psfw-settings general" id="psfw-general-section">
 
     <h3>Icon Settings</h3>
@@ -13,14 +14,18 @@
                 <ul id="sortable" style="margin-top: 5px;" class="checklist sortable">
                     <?php
 
-                    $selected_labels = Product_Share::get_options()->selected_lables;
+                    $psfw_selected_labels = Product_Share::get_options()->selected_lables;
 
-                    foreach ( $selected_labels as $key => $label){ 
+                    foreach ( $psfw_selected_labels as $psfw_label_key => $psfw_label){ 
 
                         // Font Awesome Icon Family
-                        $font_type = 'brands';
-                        if( $key == 'envelope' ){
-                            $font_type = 'solid';
+                        $psfw_font_type = 'brands';
+                        if( $psfw_label_key == 'envelope' ){
+                            $psfw_font_type = 'solid';
+                        }
+
+                        if ( $psfw_label_key == 'gmail' ) {
+                            $psfw_font_type = 'regular';
                         }
 
                         /**
@@ -30,11 +35,11 @@
                          * 
                          */
                     ?>
-                        <li id="list_item_<?php echo esc_attr( $key ); ?>" class='ui-state-default'>
+                        <li id="list_item_<?php echo esc_attr( $psfw_label_key ); ?>" class='ui-state-default'>
                             <label>
-                                <input type='hidden' value='<?php echo esc_attr( $label ); ?>' name='product_share_option[buttons][<?php echo esc_attr( $key ); ?>]'>
+                                <input type='hidden' value='<?php echo esc_attr( $psfw_label ); ?>' name='product_share_option[buttons][<?php echo esc_attr( $psfw_label_key ); ?>]'>
                                 <span>
-                                    <i class="fa-<?php echo esc_attr( $font_type ); ?> fa-<?php echo esc_attr( apply_filters( 'psfw_icon_key', $key ) ); ?>"></i> <?php echo ( $key == 'envelope' ) ? esc_html__('Email', 'product-share') : esc_attr( $label ); ?>
+                                    <i class="fa-<?php echo esc_attr( $psfw_font_type ); ?> fa-<?php echo esc_attr( apply_filters( 'psfw_icon_key', $psfw_label_key ) ); ?>"></i> <?php echo ( $psfw_label_key == 'envelope' ) ? esc_html__('Email', 'product-share') : esc_attr( $psfw_label ); ?>
                                 </span>
                             </label>
                         </li>
@@ -53,14 +58,18 @@
                         <?php 
 
                             // Getting the default/saved social icons
-                            $labels = Product_Share::get_options()->labels;
+                            $psfw_labels = Product_Share::get_options()->labels;
 
-                            foreach( product_share()->all_icons() as $key => $icon ): 
+                            foreach( product_share()->all_icons() as $psfw_icon_key => $psfw_icon ): 
 
                                 // Font Awesome Icon Family
-                                $font_type = 'brands';
-                                if( $key == 'envelope' ){
-                                    $font_type = 'solid';
+                                $psfw_font_type = 'brands';
+                                if( $psfw_icon_key == 'envelope' ){
+                                    $psfw_font_type = 'solid';
+                                }
+
+                                if ( $psfw_icon_key == 'gmail' ) {
+                                    $psfw_font_type = 'regular';
                                 }
 
                                 /**
@@ -73,11 +82,11 @@
                         ?>
 
 
-                            <li id="<?php echo esc_attr( $key ); ?>">
+                            <li id="<?php echo esc_attr( $psfw_icon_key ); ?>">
                                 <label>
-                                    <input type="checkbox" name="product_share_option[all_buttons][<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( $icon ); ?>" <?php checked( in_array( $icon, $labels), 1 ); ?> />
+                                    <input type="checkbox" name="product_share_option[all_buttons][<?php echo esc_attr( $psfw_icon_key ); ?>]" value="<?php echo esc_attr( $psfw_icon ); ?>" <?php checked( in_array( $psfw_icon, $psfw_labels), 1 ); ?> />
                                     <span>
-                                        <i class="fa-<?php echo esc_attr( $font_type ); ?> fa-<?php echo esc_attr( apply_filters( 'psfw_icon_key', $key ) ); ?>"></i> <?php echo esc_attr( $icon ); ?>
+                                        <i class="fa-<?php echo esc_attr( $psfw_font_type ); ?> fa-<?php echo esc_attr( apply_filters( 'psfw_icon_key', $psfw_icon_key ) ); ?>"></i> <?php echo esc_attr( $psfw_icon ); ?>
                                     </span>
                                 </label>
                             </li>
@@ -97,7 +106,7 @@
 
             // Icon Appearance
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Icon Appearance', 'product-share'),
                     'value' => Product_Share::get_options()->icon_appearance,
@@ -127,7 +136,7 @@
 
             // Social Button Shape
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate new',
                     'label' => esc_attr__('Social Button Shape', 'product-share'),
                     'value' => Product_Share::get_options()->button_shape,
@@ -172,7 +181,7 @@
 
             // Copy to clipboard
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Enable "Copy to Clipboard"', 'product-share'),
                     'value' => Product_Share::get_options()->copy_to_clipboard,
@@ -186,7 +195,7 @@
 
             // All Icon Button
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'new alternate',
                     'label' => esc_attr__('Enable "All Icon" Button', 'product-share'),
                     'value' => Product_Share::get_options()->all_icon,
@@ -200,7 +209,7 @@
 
             // All Icon Close Button
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'new',
                     'label' => esc_attr__('Enable Popup Dismiss', 'product-share'),
                     'value' => Product_Share::get_options()->all_icon_close,
@@ -222,7 +231,7 @@
 
             // Where to Display
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Where to Display', 'product-share'),
                     'value' => Product_Share::get_options()->display_position,
@@ -262,7 +271,7 @@
 
             // Enable Icon Title
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Enable Icon Title', 'product-share'),
                     'value' => Product_Share::get_options()->icon_title,
@@ -277,7 +286,7 @@
 
             // Enable Encode URL
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable Encode URL', 'product-share'),
                     'value' => Product_Share::get_options()->encode_url,
@@ -291,7 +300,7 @@
 
             // Enable Tooltip
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Enable Tooltip', 'product-share'),
                     'value' => Product_Share::get_options()->tooltip,
@@ -306,7 +315,7 @@
 
             // Enable Variation Link
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable Variation Link', 'product-share'),
                     'value' => Product_Share::get_options()->variation_link,
@@ -321,7 +330,7 @@
 
             // Product Wrapper Class
             WPXtension_Setting_Fields::textarea(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'new',
                     'label' => esc_attr__('Container Class', 'product-share'),
                     'ele_class' => '',
@@ -348,7 +357,7 @@
 
             // Enable Floating Icon
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable Floating Icon', 'product-share'),
                     'value' => Product_Share::get_options()->float_icon,
@@ -363,7 +372,7 @@
 
             // Floating Icon Position
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Position', 'product-share'),
                     'value' => Product_Share::get_options()->float_icon_position,
@@ -395,7 +404,7 @@
 
             // Enable on Shop/Archive
             WPXtension_Setting_Fields::checkbox(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable on Archive/Shop', 'product-share'),
                     'value' => Product_Share::get_options()->social_share_archive,
@@ -410,7 +419,7 @@
 
             // Button Appearance
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Button Appearance', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_appearance,
@@ -440,7 +449,7 @@
 
             // Button Position
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Position', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_position,
@@ -465,7 +474,7 @@
 
             // Archive button Shape
             WPXtension_Setting_Fields::select(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'new',
                     'label' => esc_attr__('Shape', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_shape,
@@ -511,7 +520,7 @@
 
             // Button Color
             WPXtension_Setting_Fields::color(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Color', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_color,
@@ -525,7 +534,7 @@
 
             // Button Background Color
             WPXtension_Setting_Fields::color(
-                $options = array(
+                $psfw_options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Background Color', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_bg_color,

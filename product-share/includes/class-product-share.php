@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.19';
+    protected $_version = '1.2.21';
 
     protected static $_instance = null;
 
@@ -134,7 +134,7 @@ class Product_Share{
 
             'display_position' => ( !empty( $get_option['display_position'] ) ) ? $get_option['display_position'] : 'with_category',
 
-            'selected_lables' => ( !empty( $get_option['buttons'] ) ) ? $get_option['buttons'] : apply_filters('selected_lables',array(
+            'selected_lables' => ( !empty( $get_option['buttons'] ) ) ? $get_option['buttons'] : apply_filters('psfw_selected_lables',array(
                     'facebook' => 'Facebook',
                     'twitter' => 'Twitter',
                     'linkedin' => 'LinkedIn'
@@ -282,6 +282,8 @@ class Product_Share{
             'mastodon' => 'Mastodon',
             'bluesky' => 'Bluesky',
             'threads' => 'Threads',
+            'gmail' => 'Gmail',
+            'buffer' => 'Buffer',
             'envelope' => 'Email'
         );
         

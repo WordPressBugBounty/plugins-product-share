@@ -1,7 +1,10 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
+// (Avoid this class name. This class is a part of WPXtension setting framework)
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound	
 if ( ! class_exists( 'WPXtension_Sidebar' ) ) {
+
 	class WPXtension_Sidebar {
 
 		protected static $_instance = null;
@@ -37,8 +40,6 @@ if ( ! class_exists( 'WPXtension_Sidebar' ) ) {
 
 	    public static function block($icon, $title, $details){
 
-	    	do_action('wpx_sidebar_before_block');
-
 	    	?>
 
 	    	<div class="postbox">
@@ -61,8 +62,6 @@ if ( ! class_exists( 'WPXtension_Sidebar' ) ) {
 
 
             <?php
-
-	    	do_action('wpx_sidebar_after_block');
 
 	    }
 

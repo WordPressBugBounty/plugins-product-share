@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
+
 <section class="psfw-settings advnaced" id="psfw-advanced-section">
 
 <h3><?php esc_attr_e('Icon Title Style Settings', 'product-share'); ?></h3>
@@ -7,7 +9,7 @@
 
         // Icon Title Color
         WPXtension_Setting_Fields::text(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Title Text', 'product-share'),
                 'value' => Product_Share::get_options()->title_text,
@@ -24,7 +26,7 @@
 
         // Icon Title Font Weight
         WPXtension_Setting_Fields::select(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Text Weight', 'product-share'),
                 'value' => Product_Share::get_options()->title_weight,
@@ -55,7 +57,7 @@
 
         // Button Text Size
         WPXtension_Setting_Fields::number(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Font Size', 'product-share'),
                 'value' => Product_Share::get_options()->title_font_size,
@@ -72,7 +74,7 @@
 
         // Icon Title Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Title Color', 'product-share'),
                 'value' => Product_Share::get_options()->title_color,
@@ -95,7 +97,7 @@
 
         // Tooltip Text Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Tooltip Text Color', 'product-share'),
                 'value' => Product_Share::get_options()->tooltip_color,
@@ -109,7 +111,7 @@
 
         // Tooltip Background Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Tooltip Background Color', 'product-share'),
                 'value' => Product_Share::get_options()->tooltip_bg_color,
@@ -132,7 +134,7 @@
 
         // Button Background Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Background Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_background_color,
@@ -146,7 +148,7 @@
 
         // Button Border color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Border Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_border_color,
@@ -160,7 +162,7 @@
 
         // Button Text color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Text Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_text_color,
@@ -174,7 +176,7 @@
 
         // Button Text Size
         WPXtension_Setting_Fields::number(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Font Size', 'product-share'),
                 'value' => Product_Share::get_options()->btn_font_size,
@@ -190,7 +192,7 @@
 
         // Button Width
         WPXtension_Setting_Fields::number(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Width', 'product-share'),
                 'value' => Product_Share::get_options()->btn_width,
@@ -206,7 +208,7 @@
 
         // Button Height
         WPXtension_Setting_Fields::number(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Height', 'product-share'),
                 'value' => Product_Share::get_options()->btn_height,
@@ -232,7 +234,7 @@
 
         // Button Background Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Background Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_hover_background_color,
@@ -246,7 +248,7 @@
 
         // Button Border color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Border Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_hover_border_color,
@@ -260,7 +262,7 @@
 
         // Button Text color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $psfw_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Text Color', 'product-share'),
                 'value' => Product_Share::get_options()->btn_hover_text_color,
