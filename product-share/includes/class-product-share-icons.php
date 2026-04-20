@@ -38,14 +38,20 @@ class Product_Share_Icons{
         add_filter( 'psfw_icon_key', array( $this, 'icon_key_replace' ) );
     }
 
+    // Checking nofollow is enabled or not
+    private function is_nofollow(){
+        return get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->nofollow_link ) ? 'no' : Product_Share::get_options()->nofollow_link );
+    }
+
     public function get_facebook($icon_appearance, $btn_format, $text, $product_id){
 
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.facebook.com/sharer/sharer.php?u=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
     		wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
     		wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
@@ -53,51 +59,56 @@ class Product_Share_Icons{
     public function get_twitter($icon_appearance, $btn_format, $text, $product_id){
 
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://twitter.com/intent/tweet?url=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_linkedin($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.linkedin.com/shareArticle?mini=true&url=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_viber($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'viber://forward?text=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_telegram($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://t.me/share/url?url=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_whatsapp($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://api.whatsapp.com/send?text=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
@@ -121,7 +132,7 @@ class Product_Share_Icons{
 
 
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		sprintf( 'https://pinterest.com/pin/create/button/?media=%1$s&description=%2$s&url=',
                 esc_url( $product_image ),
                 wp_kses_post( $product_title )
@@ -130,126 +141,139 @@ class Product_Share_Icons{
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_tumblr($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://www.tumblr.com/widgets/share/tool?posttype=link&canonicalUrl=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_vk($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(
-    		'<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+    		'<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
     		'https://vk.com/share.php?url=',
     		( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
     	);
     }
 
     public function get_reddit($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://reddit.com/submit?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_xing($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://www.xing.com/app/user?op=share&url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_pocket($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://getpocket.com/save?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_yahoo($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://compose.mail.yahoo.com/?body=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_weibo($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://service.weibo.com/share/share.php?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_evernote($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://www.evernote.com/clip.action?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_mastodon($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://mastodonshare.com/?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_bluesky($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://bsky.app/intent/compose?text=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_threads($icon_appearance, $btn_format, $text, $product_id){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://www.threads.net/intent/post?url=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
     public function get_gmail( $icon_appearance, $btn_format, $text, $product_id ){
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             'https://mail.google.com/mail/?view=cm&fs=1&body=',
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 
@@ -269,7 +293,7 @@ class Product_Share_Icons{
         $product_title = urlencode($product->get_title());
 
         echo sprintf(
-            '<li><a href="%1$s%2$s" data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
             sprintf( 
                 'https://buffer.com/add?text=%s&url=',
                 esc_attr( $product_title )
@@ -277,6 +301,7 @@ class Product_Share_Icons{
             ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
             wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
             wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
         );
     }
 

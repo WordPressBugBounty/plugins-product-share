@@ -137,7 +137,7 @@
             // Social Button Shape
             WPXtension_Setting_Fields::select(
                 $psfw_options = array(
-                    'tr_class' => 'alternate new',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Social Button Shape', 'product-share'),
                     'value' => Product_Share::get_options()->button_shape,
                     'name' => 'product_share_option[button_shape]',
@@ -175,7 +175,6 @@
                     )),
                     'note' => '',
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 
@@ -196,28 +195,27 @@
             // All Icon Button
             WPXtension_Setting_Fields::checkbox(
                 $psfw_options = array(
-                    'tr_class' => 'new alternate',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable "All Icon" Button', 'product-share'),
-                    'value' => Product_Share::get_options()->all_icon,
+                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon ) ? 'no' : Product_Share::get_options()->all_icon ),
+                    'name' => 'product_share_option[nofollow_link]',
                     'name' => 'product_share_option[all_icon]',
                     'default_value' => 'yes',
                     'checkbox_label' => esc_attr__('Display a "plus" button to show a popup/modal containing all the social icons".', 'product-share'),
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 
             // All Icon Close Button
             WPXtension_Setting_Fields::checkbox(
                 $psfw_options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => '',
                     'label' => esc_attr__('Enable Popup Dismiss', 'product-share'),
-                    'value' => Product_Share::get_options()->all_icon_close,
+                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon_close ) ? 'no' : Product_Share::get_options()->all_icon_close ),
                     'name' => 'product_share_option[all_icon_close]',
                     'default_value' => 'yes',
                     'checkbox_label' => esc_attr__('Display a "Close" button on the social icons popup to dismiss.', 'product-share'),
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 
@@ -280,14 +278,28 @@
                     'checkbox_label' => esc_attr__('Display title before social icons.', 'product-share'),
                     'note' => '',
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
+
+            // Enable Nofollow
+            WPXtension_Setting_Fields::checkbox(
+                $psfw_options = array(
+                    'tr_class' => 'alternate new',
+                    'label' => esc_attr__('Enable Nofollow', 'product-share'),
+                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->nofollow_link ) ? 'no' : Product_Share::get_options()->nofollow_link ),
+                    'name' => 'product_share_option[nofollow_link]',
+                    'default_value' => 'yes',
+                    'checkbox_label' => esc_attr__('Enable nofollow to avoid endorsing site.', 'product-share'),
+                    'note' => esc_attr__('Note: If eanbled, it will not pass ranking credit.', 'product-share'),
+                    'need_pro' => false,
+                    'tag' => esc_attr__('New', 'product-share'),
+                ),
+            );
 
             // Enable Encode URL
             WPXtension_Setting_Fields::checkbox(
                 $psfw_options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => '',
                     'label' => esc_attr__('Enable Encode URL', 'product-share'),
                     'value' => Product_Share::get_options()->encode_url,
                     'name' => 'product_share_option[encode_url]',
@@ -301,9 +313,9 @@
             // Enable Tooltip
             WPXtension_Setting_Fields::checkbox(
                 $psfw_options = array(
-                    'tr_class' => '',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable Tooltip', 'product-share'),
-                    'value' => Product_Share::get_options()->tooltip,
+                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->tooltip ) ? 'no' : Product_Share::get_options()->tooltip ),
                     'name' => 'product_share_option[tooltip]',
                     'default_value' => 'yes',
                     'checkbox_label' => esc_attr__('Display tooltip over social icons.', 'product-share'),
@@ -316,7 +328,7 @@
             // Enable Variation Link
             WPXtension_Setting_Fields::checkbox(
                 $psfw_options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => '',
                     'label' => esc_attr__('Enable Variation Link', 'product-share'),
                     'value' => Product_Share::get_options()->variation_link,
                     'name' => 'product_share_option[variation_link]',
@@ -331,7 +343,7 @@
             // Product Wrapper Class
             WPXtension_Setting_Fields::textarea(
                 $psfw_options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Container Class', 'product-share'),
                     'ele_class' => '',
                     'value' => Product_Share::get_options()->container_class,
@@ -340,7 +352,6 @@
                     'note_info' => __('Keep blank, if you don\'t have any issues with variation dropdown(s) base share URL. This field is for fixing variation dropdown(s) base URL changing compatibility issue.', 'product-share'),
                     'placeholder' => '.product.product-type-variable',
                     'need_pro' => false,
-                    'tag' => esc_attr__('New', 'product-share'),
                     'need_pro' => true,
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
                 )
@@ -407,7 +418,7 @@
                 $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable on Archive/Shop', 'product-share'),
-                    'value' => Product_Share::get_options()->social_share_archive,
+                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->social_share_archive ) ? 'no' : Product_Share::get_options()->social_share_archive ),
                     'name' => 'product_share_option[social_share_archive]',
                     'default_value' => 'yes',
                     'checkbox_label' => esc_attr__('Enable Social Icon on Archive/Shop page for each Product.', 'product-share'),
@@ -475,7 +486,7 @@
             // Archive button Shape
             WPXtension_Setting_Fields::select(
                 $psfw_options = array(
-                    'tr_class' => 'new',
+                    'tr_class' => '',
                     'label' => esc_attr__('Shape', 'product-share'),
                     'value' => Product_Share::get_options()->archive_button_shape,
                     'name' => 'product_share_option[archive_button_shape]',
@@ -514,7 +525,6 @@
                     'note' => '',
                     'need_pro' => true,
                     'pro_exists' => Product_Share::check_plugin_state('product-share-pro'),
-                    'tag' => esc_attr__('New', 'product-share'),
                 )
             ); 
 

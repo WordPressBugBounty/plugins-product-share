@@ -335,6 +335,8 @@ class Product_Share_Front{
             $product_id = get_the_ID();
         }
 
+        $all_icon = get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon ) ? 'no' : Product_Share::get_options()->all_icon );
+
         // Clipboard Button
         if( 'yes' === Product_Share::get_options()->copy_to_clipboard && false === $popup ){
             $text = __('Copy Link', 'product-share');
@@ -342,7 +344,7 @@ class Product_Share_Front{
         }
 
         // All Icon Button
-        if( 'yes' === Product_Share::get_options()->all_icon && false === $popup ){
+        if( 'yes' === $all_icon && false === $popup ){
             $text = __('All Icon', 'product-share');
             product_share()->get_frontend()->get_icons()->get_all_icon(Product_Share::get_options()->icon_appearance, $text, $product_id);
         }
@@ -351,7 +353,11 @@ class Product_Share_Front{
 
     public function all_icons_popup(){
 
-        if( 'no' === Product_Share::get_options()->all_icon ){
+        $all_icon = get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon ) ? 'no' : Product_Share::get_options()->all_icon );
+
+        $all_icon_close = get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon_close ) ? 'no' : Product_Share::get_options()->all_icon_close );
+
+        if( 'no' === $all_icon ){
             return;
         }
 
@@ -371,9 +377,9 @@ class Product_Share_Front{
                     <ul class='%s'>",
                 esc_attr( apply_filters('psfw_popup_class', 'psfw-popup-container') ),
                 esc_attr( apply_filters('psfw_popup_inner_class', 'psfw-popup-inner-container') ),
-                Product_Share::get_options()->all_icon_close === 'no' ? esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top') ) : esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top with-close') ),
+                $all_icon_close === 'no' ? esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top') ) : esc_attr( apply_filters('psfw_popup_top_class', 'psfw-popup-top with-close') ),
                 esc_attr( apply_filters('psfw_icon_title', __('Share On:', 'product-share')) ),
-                Product_Share::get_options()->all_icon_close === 'yes' ? wp_kses_post( apply_filters('psfw_popup_close_button', "
+                $all_icon_close === 'yes' ? wp_kses_post( apply_filters('psfw_popup_close_button', "
                     <a href='#'><i class='fa-solid fa-xmark'></i></a>
                 ") ) : '',
                 esc_attr( apply_filters('psfw_popup_ul_class', 'psfw-popup-ul-container') )

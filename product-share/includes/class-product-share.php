@@ -11,7 +11,7 @@ class Product_Share{
 
     protected $_plugin = 'product-share';
     
-    protected $_version = '1.2.21';
+    protected $_version = '1.2.22';
 
     protected static $_instance = null;
 
@@ -161,6 +161,8 @@ class Product_Share{
             'icon_title' => ( empty( $get_option['icon_title'] ) ) ? 'no' : $get_option['icon_title'],
 
             'encode_url' => ( empty( $get_option['encode_url'] ) ) ? 'no' : $get_option['encode_url'],
+
+            'nofollow_link' => ( empty( $get_option['nofollow_link'] ) ) ? 'no' : $get_option['nofollow_link'],
 
             'tooltip' => ( empty( $get_option['tooltip'] ) ) ? 'no' : $get_option['tooltip'],
 
