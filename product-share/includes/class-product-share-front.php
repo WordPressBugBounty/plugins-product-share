@@ -317,6 +317,10 @@ class Product_Share_Front{
                      product_share()->get_frontend()->get_icons()->get_buffer($icon_appearance, $btn_format, $text, $product_id);
                 break;
 
+                case "snapchat":
+                     product_share()->get_frontend()->get_icons()->get_snapchat($icon_appearance, $btn_format, $text, $product_id);
+                break;
+
                 case "envelope":
                      product_share()->get_frontend()->get_icons()->get_email($icon_appearance, $btn_format, $text, $product_id);
                 break;
@@ -335,7 +339,7 @@ class Product_Share_Front{
             $product_id = get_the_ID();
         }
 
-        $all_icon = get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon ) ? 'no' : Product_Share::get_options()->all_icon );
+        $all_icon = Product_Share::get_options()->all_icon;
 
         // Clipboard Button
         if( 'yes' === Product_Share::get_options()->copy_to_clipboard && false === $popup ){

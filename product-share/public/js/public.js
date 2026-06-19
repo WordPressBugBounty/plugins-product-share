@@ -88,6 +88,16 @@
                 
             });
 
+            // `esc` button closing popup
+            $(document).on('keydown', function( e ){
+              if (e.key === "Escape") {
+                if (clicks == 1) {
+                    $( '.psfw-popup-container' ).removeClass( 'open' );
+                    clicks--;
+                }
+              }
+            });
+
             // Regenerate variation data for YITH Quick View close
             // var quickViewClasses= '.yith-quick-view-overlay, .yith-quick-view-close';
             // $(document).find( quickViewClasses ).on('click', function(event){

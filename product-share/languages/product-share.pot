@@ -2,13 +2,13 @@
 # This file is distributed under the GPLv2 or later license.
 msgid ""
 msgstr ""
-"Project-Id-Version: product-share 1.2.22\n"
+"Project-Id-Version: product-share 1.2.23\n"
 "Report-Msgid-Bugs-To: WPXtension <EMAIL>\n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"POT-Creation-Date: 2026-04-20T06:00:24.341Z\n"
+"POT-Creation-Date: 2026-06-19T09:13:51.845Z\n"
 "PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
 "Last-Translator: WPXtension <EMAIL>\n"
 "Language-Team: WPXtension <EMAIL>\n"
@@ -78,19 +78,19 @@ msgstr ""
 msgid "Reset Current Tab"
 msgstr ""
 
-#: includes/class-product-share-icons.php:320
+#: includes/class-product-share-icons.php:331
 msgid "Check this out: "
 msgstr ""
 
-#: includes/class-product-share-icons.php:336
-#: includes/class-product-share-icons.php:341
+#: includes/class-product-share-icons.php:347
+#: includes/class-product-share-icons.php:352
 #: includes/class-product-share-front.php:87
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: includes/class-product-share-icons.php:359
-#: includes/class-product-share-icons.php:364
-#: includes/class-product-share-front.php:348
+#: includes/class-product-share-icons.php:370
+#: includes/class-product-share-icons.php:375
+#: includes/class-product-share-front.php:352
 msgid "All Icon"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgid "Copied to Clipboard"
 msgstr ""
 
 #: includes/class-product-share-front.php:147
-#: includes/class-product-share-front.php:381
+#: includes/class-product-share-front.php:385
 #: includes/setting-tab/advanced.php:22
 msgid "Share On:"
 msgstr ""
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: includes/class-product-share-front.php:342
+#: includes/class-product-share-front.php:346
 msgid "Copy Link"
 msgstr ""
 

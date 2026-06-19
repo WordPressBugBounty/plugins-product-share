@@ -305,6 +305,17 @@ class Product_Share_Icons{
         );
     }
 
+    public function get_snapchat( $icon_appearance, $btn_format, $text, $product_id ){
+        echo sprintf(
+            '<li><a href="%1$s%2$s" %5$s data-psfw-href="%1$s" target="_blank" data-main-product-url="%2$s" data-form-url="%2$s" %3$s>%4$s</a></li>',
+            'https://www.snapchat.com/share?link=',
+            ( Product_Share::get_options()->encode_url === 'yes' ) ? urlencode( esc_url( get_permalink( $product_id ) ) ) : esc_url( get_permalink( $product_id ) ),
+            wp_kses_post( apply_filters('psfw_a_additional_attr', '', $text) ),
+            wp_kses_post( $btn_format ),
+            $this->is_nofollow() === 'yes' ? 'rel="nofollow"' : '',
+        );
+    }
+
 
     public function get_email($icon_appearance, $btn_format, $text, $product_id){
     	echo sprintf(

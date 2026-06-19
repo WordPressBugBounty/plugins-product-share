@@ -6,8 +6,8 @@ Requires PHP: 7.3
 Requires at least: 5.5
 WC requires at least: 5.5
 Tested up to: 7.0
-WC tested up to: 10.7.0
-Stable tag: 1.2.22
+WC tested up to: 10.8.1
+Stable tag: 1.2.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,10 +161,15 @@ Yes, use `[psfw_basic_share]` to place the share button anywhere on the single p
 
 == Changelog ==
 
+= 1.2.23 [19-06-2026] =
+* Added: Snapchat icon with intent link support.
+* Added: Ability to close the popup by pressing the Esc key.
+* Compatibility: Tested with WooCommerce 10.8.1.
+
 = 1.2.22 [20-04-2026] =
 * Add: Nofollow option for social icon links.
 * Update: Some required options are now enabled automatically.
-* Compatibility: Tested with WordPress 7.0 & WooCommerce 10.7.0.
+* Compatibility: Tested with WooCommerce 10.7.0.
 
 = 1.2.21 [31-01-2026] =
 * Add: Buffer Icon.

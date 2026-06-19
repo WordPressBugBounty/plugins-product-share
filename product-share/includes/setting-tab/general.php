@@ -197,7 +197,7 @@
                 $psfw_options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Enable "All Icon" Button', 'product-share'),
-                    'value' => get_option( 'product_share_option' ) === false ? 'yes' : ( !isset( Product_Share::get_options()->all_icon ) ? 'no' : Product_Share::get_options()->all_icon ),
+                    'value' => Product_Share::get_options()->all_icon,
                     'name' => 'product_share_option[nofollow_link]',
                     'name' => 'product_share_option[all_icon]',
                     'default_value' => 'yes',
